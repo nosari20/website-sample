@@ -1,0 +1,28 @@
+$primary: #F4645F !default;
+$backgound: #FFF !default;
+$light: #F4645F !default;
+
+$body-font-family: "Lora","Helvetica Neue",Helvetica,Arial,sans-serif;
+$headline-font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+// Path to assets
+$imagesPath : "../img/";
+
+
+
+
+
+// Path to assets
+$imagesPath : "../img/";
+
+
+// Font awesome config
+//$fa-font-path:        "../fonts" !default;
+$fa-font-size-base:   14px !default;
+$fa-line-height-base: 1 !default;
+$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.6.3/fonts" !default; // for referencing Bootstrap CDN font files directly
+$fa-css-prefix:       fa !default;
+$fa-version:          "4.6.3" !default;
+$fa-border-color:     #eee !default;
+$fa-inverse:          #fff !default;
+$fa-li-width:         (30em / 14) !default;

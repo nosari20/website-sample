@@ -1,0 +1,127 @@
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@media all and (max-width: $screen-xs-max) {
+
+  .navbar-toggle{
+    left: -40px;
+    float: none !important;
+    position: absolute;
+  }
+  .navbar{
+    position: fixed;
+    right: 0;
+    left: auto;
+    top: 0;
+    border-width: 0 0 1px;
+    width: 200px;
+    height: 100%;
+    -moz-transform: translateX(200px);
+    -o-transform: translateX(200px);
+    -ms-transform: translateX(200px);
+    -webkit-transform: translateX(200px);
+    transform: translateX(200px);
+
+    -webkit-transition: all .2s cubic-bezier(.4,0,.2,1);
+    -moz-transition: all .2s cubic-bezier(.4,0,.2,1);
+    transition: all .2s cubic-bezier(.4,0,.2,1);
+  }
+  .navbar.in{
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  .navbar .close-nav{
+    display: none;
+  }
+
+  .navbar.in .close-nav{
+    display: inline-block;
+  }
+  .navbar.in .open-nav{
+    display: none;
+  }
+
+
+  #main{
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+
+    -webkit-transition: all .2s cubic-bezier(.4,0,.2,1);
+    -moz-transition: all .2s cubic-bezier(.4,0,.2,1);
+    transition: all .2s cubic-bezier(.4,0,.2,1);
+  }
+
+  #main.in{
+    -moz-transform: translateX(-200px);
+    -o-transform: translateX(-200px);
+    -ms-transform: translateX(-200px);
+    -webkit-transform: translateX(-200px);
+    transform: translateX(-200px);
+    opacity: .5;
+  }
+
+
+  .navbar-brand{
+    text-align: center;
+    height: auto;
+    border-bottom: solid 1px $light;
+    width: 100%;
+  }
+
+  .navbar-nav a{
+    padding: 10px 25px;
+  }
+
+  .navbar-info{
+    display: block;
+    margin-right: -15px;
+    margin-left: -15px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+  }
+
+  .navbar-info h3{
+    padding: 15px 15px;
+    margin: 0;
+    display: block;
+    border-bottom: solid 1px $light;
+    text-align: center;
+  }
+  .navbar-info ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 7.5px;
+  }
+  .navbar-info ul li{
+    padding: 10px 15px;
+    text-align: center;
+  }
+
+  .social-info a{
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+    width: 33.33%;
+    text-align: center;
+    font-size: 30px
+  }
+
+}
+@media all and (min-width: $screen-xs-max) {
+  .navbar-info {
+    display: none;
+  }
+}

@@ -1,0 +1,51 @@
+.note-editor{
+    border: none !important;
+    margin-bottom: 0;
+    background: transparent !important;
+    .note-toolbar {
+        color: inherit !important;
+        background-color: #fff !important;
+        border: none;
+        border-bottom: solid 1px #e4e4e4;
+        text-align: center;
+
+        button{
+            border: none;
+            height: 28px;
+        }
+
+        .note-current-color-button ~ .dropdown-menu > li > div{
+            display: inline-block;
+            width: 50%;;
+            margin: 0 !important;
+            padding-right: 2px;
+            padding-left: 2px;           
+
+        }
+
+        
+        
+    }   
+    .panel-body{
+        min-height: 100px;
+        height: auto;
+        background: transparent !important;
+    }
+
+    .modal-dialog{
+        margin-top: 100px;
+    }
+
+    .note-statusbar{
+        display: none;
+    }
+}
+.modal-backdrop{
+    display: none !important;
+}
+
+.editor:not(.ge-editing){
+    .note-toolbar {
+        display: none;
+    }
+}

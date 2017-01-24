@@ -1,0 +1,130 @@
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+.file{
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    &:hover{
+        text-decoration: none;
+    }
+}
+.file-icon {
+    position: relative;
+    width: 100px;
+    height: 125px;
+    margin: auto;
+    overflow: hidden;
+    @include border-radius(5px 0 5px 5px);
+    font-size : 24px;
+    color:white;
+    line-height:125px;
+    text-align: center;
+    text-transform: uppercase;
+    /*
+    @media (max-width: 480px) {
+        width: 50px;
+        height: 62.5px; 
+        line-height: 70px;  
+        font-size: 18px;     
+    }
+    */
+    img{
+        width: 100%;
+    }
+
+    button{
+            background: transparent;
+            border: none;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            opacity: 0;
+            outline: none;
+            
+
+            &.delete{
+                right: 2px;
+            }
+    }
+    &:hover button{
+        opacity: 1;
+    }
+
+    &.mini{
+        display: inline-block;
+        width: 30px;
+        height: 40px;
+        @include border-radius(5px 0 5px 5px);
+        font-size : 12px;
+        color:white;
+        line-height:40px;
+        &:before {
+            border-width: 5px;
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-width: 12px;
+        border-style: solid;
+        border-color: #2c3e50 #2c3e50 transparent transparent;
+        @include border-bottom-left-radius(5px);
+        background:transparent;
+        @include box-shadow(0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2));
+        display: block;
+        width: 0;
+
+
+    }
+}
+
+.file-icon {
+    background: #2c3e50;
+    
+}
+.file-icon:before {
+    border-color: #FFF  #FFF  #2c3e50 #2c3e50;
+}
+
+.file-icon.red {
+    background: #e74c3c;
+}
+.file-icon.red:before {
+    border-color: #FFF  #FFF  #c0392b #c0392b;
+}
+
+.file-icon.green {
+    background: #1ABC9C;
+}
+.file-icon.green:before {
+    border-color: #FFF  #FFF  #1ABC9C #1ABC9C;
+}
+
+.file-icon.yellow {
+    background: #F1C40F;
+}
+.file-icon.yellow:before {
+    border-color: #FFF  #FFF  #F1C40F #F1C40F;
+}
+
+.file-icon.purple {
+    background: #9B59B6;
+}
+.file-icon.purple:before {
+    border-color: #FFF  #FFF  #9B59B6 #9B59B6;
+}
+
+.file-icon.transparent {
+    background: #FFF;
+}
+.file-icon.transparent:before {
+    display: none;
+}
+
+
+
+
+

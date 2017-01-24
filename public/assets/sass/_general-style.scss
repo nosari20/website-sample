@@ -1,0 +1,44 @@
+@mixin general{
+    h1, h2, h3, h4, h5{
+        color: $gray;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    h1{
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    h2{
+        color: #FFF;
+        text-align: center;
+        &.reverse{
+            color: $gray; 
+        }
+        &.big{
+            padding: 15px;
+        }
+    }
+    h3{
+
+    }
+    h4{
+
+    }
+    h5{
+
+    }
+
+    .bg-gray{
+        background: $gray;
+    }
+    .bg-gray-light{
+        background: $gray-light;
+    }
+    .bg-gray-super-light{
+        background: $gray-super-light;
+    }
+    .bg-gray-ultra-light{
+        background: $gray-ultra-light;
+        
+    }
+}

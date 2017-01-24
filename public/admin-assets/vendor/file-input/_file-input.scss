@@ -1,0 +1,45 @@
+.fileinput{
+    margin-bottom: 5px;
+    display: inline-block;
+    .fileinput-preview {
+        width: 200px;
+        height: 150px;
+        position: relative;
+        margin-bottom:5px;
+        line-height: 150px;
+        overflow: hidden;
+        img {
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -13px;
+        }
+    }
+
+    button{
+        width: 100%;
+    }
+
+    input[type="file"] {
+        opacity: 0;
+    }   
+    
+}
+
+.fileinput-exists .fileinput-new, .fileinput-new .fileinput-exists {
+    display: none;
+}
+
+
+.btn-file > input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    font-size: 23px;
+    height: 100%;
+    width: 100%;
+    direction: ltr;
+    cursor: pointer;
+}
