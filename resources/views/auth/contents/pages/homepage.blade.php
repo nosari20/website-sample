@@ -7,271 +7,28 @@
 
   <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
-                <a href="#diapo" class="mdl-tabs__tab is-active">Diaporama</a>
-                <a href="#domains" class="mdl-tabs__tab">Domaines d'intervention</a>
-                <a href="#partenaires" class="mdl-tabs__tab">Partenaires</a>
-                @foreach($others as $other)
-                    <a href="#{{$other->name}}" class="mdl-tabs__tab">{{$other->label}}</a>
-                @endforeach
+                <a href="#general" class="mdl-tabs__tab is-active">Général</a>
         </div>
 
-        <div class="mdl-tabs__panel is-active" id="diapo">
+        <div class="mdl-tabs__panel is-active" id="general">
            <div class="mdl-color--white mdl-card mdl-card--full mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
                 <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">Diaporama</h2>
+                    <h2 class="mdl-card__title-text">Général</h2>
                 </div>
                 <div class="mdl-card__supporting-text mdl-cell--12-col">
 
 
                     
-                    <form action="{{url('/admin/page/accueil/carousel')}}" method="post" enctype="multipart/form-data">
-
-                        {{ csrf_field() }}
-
-                        <table class="mdl-data-table mdl-shadow--2dp table-form carousel">
-                            <thead>
-                                <tr>
-                                    <th>Photo</th>
-                                    <th>Texte</th>
-                                    <th>Couleur</th>
-                                    <th>Couleur de fond</th>
-                                    <th>Taille en pixel</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    @forelse($carousel as $slide)
-                                        <tr>
-                                            <td class="input-image crop-image">
-                                                <div class="wrapper">
-                                                    <div class="image" style="background-image: url({{$url->upload}}carousel/{{$slide->image}})" data-src="{{$url->upload}}carousel/{{$slide->image}}">
-                                                        <i class="material-icons action change">file_upload</i>
-                                                    </div>
-                                                    <input type="file" accept="image/*" name="slide-image-{{$slide->id}}">
-                                                    
-                                                </div>
-                                            </td>
-                                            <td class="input-text">
-                                                <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input" type="text" id="slide-text-{{$slide->id}}" value="{{$slide->text}}" name="slide-text-{{$slide->id}}"> 
-                                                    <label class="mdl-textfield__label" for="slide-text-{{$slide->id}}">Texte...</label>
-                                                </div>
-                                                <input type="hidden" name="hidden-slide-{{$slide->id}}">
-                                            </td>
-                                            <td>
-                                                <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input color-choser" type="text" value="{{$slide->color}}" name="slide-color-{{$slide->id}}"> 
-                                                </div>
-                                                
-                                            </td>
-                                            <td>
-                                                <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input color-choser" type="text" value="{{$slide->bgcolor}}" name="slide-bgcolor-{{$slide->id}}" data-color="transparent"> 
-                                                </div>
-                                                
-                                            </td>
-                                            <td>
-                                                <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input" type="number" value="{{$slide->size}}" name="slide-size-{{$slide->id}}"> 
-                                                </div>
-                                                
-                                            </td>
-                                            <td><a href="#" class="action delete"><i class="material-icons">delete</i></a></td>
-                                        </tr>
-                                    @empty
-
-
-                                        <tr>
-                                            <td colspan="6">Aucun contenu</td>
-                                        </tr>
-                                    @endforelse
-                                    <tr class="add-row">
-                                        <td colspan="6">
-                                            <i class="material-icons action edit">add</i>
-                                        </td>
-                                    </tr>
-                            </tbody>
-                        </table>
-
-
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">Enregistrer</button>
-                    </form>
+                    
 
                 </div>
             </div>
         </div>
 
 
-         <div class="mdl-tabs__panel" id="domains">
-           <div class="mdl-color--white mdl-card mdl-card--full mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">Domaines d'intervention</h2>
-                </div>
-                <div class="mdl-card__supporting-text mdl-cell--12-col">
+        
 
-
-                    
-                    <form action="{{url('/admin/page/accueil/domains')}}" method="post" enctype="multipart/form-data">
-
-                        {{ csrf_field() }}
-
-                        <table class="mdl-data-table mdl-shadow--2dp table-form domains">
-                            <thead>
-                                <tr>
-                                    <th>Nom</th>
-                                    <th>URL</th>
-                                    <th>Catégorie</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    @forelse($domains as $domain)
-                                        <tr>
-                                           
-                                            <td class="input-text">
-                                                <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input" type="text" id="domain-text-{{$domain->id}}" value="{{$domain->text}}" name="domain-text-{{$domain->id}}"> 
-                                                    <label class="mdl-textfield__label" for="domain-text-{{$domain->id}}">Nom...</label>
-                                                </div>
-                                                <input type="hidden" name="hidden-domain-{{$domain->id}}">
-                                            </td>
-                                             <td class="input-text">
-                                                <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input" type="url" id="domain-link-{{$domain->id}}" value="{{$domain->link}}" name="domain-link-{{$domain->id}}"> 
-                                                    <label class="mdl-textfield__label" for="domain-link-{{$domain->id}}">URL...</label>
-                                                </div>
-                                            </td>
-                                            <td class="input-text">
-                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="domain-cat-{{$domain->id}}-1">
-                                                    <input type="radio" id="domain-cat-{{$domain->id}}-1" class="mdl-radio__button" name="domain-cat-{{$domain->id}}" value="part" @if($domain->cat=='part') checked @endif>
-                                                    <span class="mdl-radio__label">Particuliers</span>
-                                                </label>
-                                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="domain-cat-{{$domain->id}}-2">
-                                                    <input type="radio" id="domain-cat-{{$domain->id}}-2" class="mdl-radio__button" name="domain-cat-{{$domain->id}}" value="pro" @if($domain->cat=='pro') checked @endif>
-                                                    <span class="mdl-radio__label">Professionnels</span>
-                                                </label>
-                                            </td>
-                                            <td><a href="#" class="action delete"><i class="material-icons">delete</i></a></td>
-                                        </tr>
-                                    @empty
-
-
-                                        <tr>
-                                            <td colspan="4">Aucun contenu</td>
-                                        </tr>
-                                    @endforelse
-                                    <tr class="add-row">
-                                        <td colspan="4">
-                                            <i class="material-icons action edit">add</i>
-                                        </td>
-                                    </tr>
-                            </tbody>
-                        </table>
-
-
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">Enregistrer</button>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-
-
-        <div class="mdl-tabs__panel" id="partenaires">
-           <div class="mdl-color--white mdl-card mdl-card--full mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">Partenaires</h2>
-                </div>
-                <div class="mdl-card__supporting-text mdl-cell--12-col">
-
-
-                    
-                    <form action="{{url('/admin/page/accueil/partenaires')}}" method="post" enctype="multipart/form-data">
-
-                        {{ csrf_field() }}
-
-                        <table class="mdl-data-table mdl-shadow--2dp table-form partenaires">
-                            <thead>
-                                <tr>
-                                    <th>Logo</th>
-                                    <th>URL</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    @forelse($parts as $part)
-                                        <tr>
-                                            <td class="input-image">
-                                                <div class="wrapper">
-                                                    <div class="image" style="background-image: url({{$url->upload}}partenaires/{{$part->logo}})">
-                                                        <i class="material-icons action change">file_upload</i>
-                                                    </div>
-                                                    <input type="file" accept="image/*" name="part-logo-{{$part->id}}">
-                                                    
-                                                </div>
-                                            </td>
-                                            <td class="input-text">
-                                                <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input" type="url" id="part-link-{{$part->id}}" value="{{$part->url}}" name="part-link-{{$part->id}}"> 
-                                                    <label class="mdl-textfield__label" for="part-link-{{$part->id}}">URL...</label>
-                                                </div>
-                                                <input type="hidden" name="hidden-part-{{$part->id}}">
-                                            </td>
-                                        
-                                            <td><a href="#" class="action delete"><i class="material-icons">delete</i></a></td>
-                                        </tr>
-                                    @empty
-
-
-                                        <tr>
-                                            <td colspan="4">Aucun contenu</td>
-                                        </tr>
-                                    @endforelse
-                                    <tr class="add-row">
-                                        <td colspan="4">
-                                            <i class="material-icons action edit">add</i>
-                                        </td>
-                                    </tr>
-                            </tbody>
-                        </table>
-
-
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">Enregistrer</button>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-
-        @foreach($others as $other)
-
-            <div class="mdl-tabs__panel" id="{{$other->name}}">
-           <div class="mdl-color--white mdl-card mdl-card--full mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">{{$other->label}}</h2>
-                </div>
-                <div class="mdl-card__supporting-text mdl-cell--12-col">
-
-
-                    
-                    <form action="{{url('/admin/page/accueil/'.$other->name)}}" method="post" enctype="multipart/form-data">
-
-                        {{ csrf_field() }}
-
-
-                            <div class="editor mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty" style="margin-bottom:25px">
-                                <textarea name="{{$other->name}}" placeholder="">{{$other->content}}</textarea>
-                            </div>
-                        
-
-
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">Enregistrer</button>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-        @endforeach
+       
 
     </div>
 

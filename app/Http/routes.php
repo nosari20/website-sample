@@ -58,6 +58,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     
     Route::get('/pages', 'AdminController@getPages');
+    Route::get('/page/accueil', 'AdminController@getHome');
 
 
     Route::get('/page/delete/{id?}', 'AdminController@deletePageById');

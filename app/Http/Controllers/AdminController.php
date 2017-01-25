@@ -10,6 +10,7 @@ use App\Social;
 use App\Daily;
 use App\User;
 use App\Page;
+use App\Category;
 class AdminController extends Controller
 {
     /**
@@ -231,6 +232,14 @@ class AdminController extends Controller
     /**
      * Pages
      */
+
+    public function getHome(){
+
+        $data = new \stdClass();
+
+        return view('auth.contents.pages.homepage',(array)$data);
+    }
+    
     public function getPages(){
         $data = new \stdClass();
 
